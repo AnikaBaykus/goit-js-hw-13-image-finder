@@ -7,7 +7,7 @@ export default class ImagesApiService {
         this.page = 1;
      }
 
-    fetchArticles() {
+    fetchHits() {
         console.log(this);
         const options = {
             URL: URL,

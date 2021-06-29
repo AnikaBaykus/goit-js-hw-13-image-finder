@@ -1,37 +1,56 @@
 import ImagesApiService from './apiService';
 import cardImageTpl from '../templates/card-images.hbs';
-
+import ShowMoreBtn from './show-more-btn';
 
 const refs = {
     searchImageEl: document.querySelector('#search-form'),
     listImagesEl: document.querySelector('.gallery'),
-    showMoreBtnEl: document.querySelector('[data-action="show-more"]'),
 }
 
 const imagesApiService = new ImagesApiService();
-
+const showMoreBtn = new ShowMoreBtn({
+    selector: '[data-action="show-more"]',
+    hidden: true,
+    });
 
 refs.searchImageEl.addEventListener('submit', onSearchImage);
-refs.showMoreBtnEl.addEventListener('click', onShowMore);
-
+showMoreBtn.refs.button.addEventListener('click', fetchHits);
 
 function onSearchImage(event) {
  event.preventDefault();
     clearImagesList();
+
     imagesApiService.name = event.currentTarget.elements.query.value.trim();
+
     imagesApiService.resetPage();
-    imagesApiService.fetchArticles().then(appendImagesMarkup);
-    
+    showMoreBtn.show();
+
+    fetchHits();   
 }
 
-function onShowMore() {
-    imagesApiService.fetchArticles().then(appendImagesMarkup);   
+function fetchHits() {
+    showMoreBtn.disable(); 
+    imagesApiService.fetchHits().then(hits =>{
+        appendImagesMarkup(hits);
+        showMoreBtn.enable();
+    });
 }
+
 
 function appendImagesMarkup(hits) {
     refs.listImagesEl.insertAdjacentHTML('beforeend', cardImageTpl(hits));
+    scrollGallery();  
+
 }
 
 function clearImagesList() {
     refs.listImagesEl.innerHTML = '';
 }
+
+function scrollGallery() {
+    showMoreBtn.refs.button.scrollIntoView({
+    behavior: 'smooth',
+    block: 'end',
+    });
+}
+

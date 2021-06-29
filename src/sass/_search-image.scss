@@ -1,0 +1,171 @@
+body {
+    background-image: url(../images/fon.jpg);
+    text-align: center;
+    
+    background-repeat:repeat;
+    background-size: auto;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 1.5;
+};
+
+.search-form {
+    padding-top: 90px;
+    padding-bottom: 30px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+};
+
+.search-form-input {
+    width: 600px;
+    height: 60px;
+    padding: 10px 80px;
+
+    color: #464451;
+    background: #EFEFEF;
+    border-radius: 40px;
+    border: 4px solid #464451;
+    outline: none;
+    box-shadow: 0.4em 0.4em 5px rgba(0,0,0,0.5);
+};
+
+.search-form-input:focus{
+    border: 5px solid #464451;
+}
+
+.gallery{
+    margin:0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.photo-card {
+    margin: 15px;
+    width: 450px;
+    background-color: #fff;
+    padding: 20px;
+    border: 4px solid #464451;
+    box-shadow: 0.4em 0.4em 5px rgba(0,0,0,0.5);
+}
+img {
+    width: 100%;
+    height: auto;
+}
+
+.stats{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+
+}
+
+.stats-item:not(:last-child){
+    margin-right: 12px;
+}
+
+button {
+    margin-bottom: 180px;
+    padding: 8px 15px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1.5;
+
+    border-radius: 40px;
+    border: 4px solid #464451;
+    outline: none;
+    box-shadow: 0.4em 0.4em 5px rgba(0,0,0,0.5);
+}
+
+button:focus,
+button:hover{
+    border: 5px solid #464451;
+    cursor: pointer;
+}
+button:active {
+  transform: translateY(4px); 
+  box-shadow: 0.4em 0.4em 5px rgba(0,0,0,0.5);
+}
+
+.button.is-hidden {
+    display: none;
+}
+
+.button > .spinner.is-hidden {
+    display: none
+}
+
+.spinner{
+    width:100px;
+    height:100px;
+    margin:60px auto;
+    position:absolute;
+    -webkit-animation: rotateit 1.3s linear infinite;
+    animation: rotateit 1.3s linear infinite;
+}
+@-webkit-keyframes rotateit {
+  from { -webkit-transform: rotate(360deg); }
+  to { -webkit-transform: rotate(0deg); }
+}
+@keyframes rotateit {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.spinner.circles div{
+    width: 20px;
+    height: 20px;
+    border-radius:50%;
+    background: black;
+    position: absolute;
+    top: 35px;
+    left: 45px;
+}
+
+	.spinner.circles div:nth-child(1){
+    -webkit-transform: rotate(0deg) translate(0, -35px) scale(1.4);
+    transform: rotate(0deg) translate(0, -35px) scale(1.4);
+}
+.spinner.circles div:nth-child(2){
+    -webkit-transform: rotate(45deg) translate(0, -35px) scale(1.2);
+    transform: rotate(45deg) translate(0, -35px) scale(1.2);
+    opacity:0.7;
+}
+.spinner.circles div:nth-child(3){
+    -webkit-transform: rotate(90deg) translate(0, -35px) scale(1.1);
+    transform: rotate(90deg) translate(0, -35px) scale(1.1);
+    opacity:0.6;
+}
+.spinner.circles div:nth-child(4){
+    -webkit-transform: rotate(135deg) translate(0, -35px) scale(0.9);
+    transform: rotate(135deg) translate(0, -35px) scale(0.9);
+    opacity:0.5;
+}
+.spinner.circles div:nth-child(5){
+    -webkit-transform: rotate(180deg) translate(0, -35px) scale(0.7);
+    transform: rotate(180deg) translate(0, -35px) scale(0.7);
+    opacity:0.4;
+}
+.spinner.circles div:nth-child(6){
+    -webkit-transform: rotate(225deg) translate(0, -35px) scale(0.5);
+    transform: rotate(225deg) translate(0, -35px) scale(0.5);
+    opacity:0.3;
+}
+.spinner.circles div:nth-child(7){
+    -webkit-transform: rotate(270deg) translate(0, -35px) scale(0.3);
+    transform: rotate(270deg) translate(0, -35px) scale(0.3);
+    opacity:0.2;
+}
+.spinner.circles div:nth-child(8){
+    -webkit-transform: rotate(315deg) translate(0, -35px) scale(0.1);
+    transform: rotate(315deg) translate(0, -35px) scale(0.1);
+    opacity:0.1;
+}
