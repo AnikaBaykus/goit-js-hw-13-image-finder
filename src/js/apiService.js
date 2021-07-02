@@ -12,17 +12,11 @@ export default class ImagesApiService {
         const options = {
             URL: URL,
             KEY: API_KEY,
-            IMAGE_TYPE:'photo',
-            ORIENTATION:'horizontal', 
+            IMAGE_TYPE:'photo', 
             PER_PAGE: 12,
         }
             
-        return fetch(`${options.URL}?image_type=${options.IMAGE_TYPE}
-                &orientation=${options.ORIENTATION}
-                &q=${this.nameImage}
-                &page=${this.page}
-                &per_page=${options.PER_PAGE}
-                &key=${options.KEY}`)
+        return fetch(`${options.URL}?image_type=${options.IMAGE_TYPE}&orientation=horizontal&q=${this.nameImage}&page=${this.page}&per_page=${options.PER_PAGE}&key=${options.KEY}`)
                     .then(response => response.json())
                     .then(({hits}) => {
                         this.page += 1;
